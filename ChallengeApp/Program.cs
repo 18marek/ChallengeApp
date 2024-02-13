@@ -1,27 +1,28 @@
-﻿string name = "Ewa";
-string sex = "man";
-int age = 15;
+﻿using System.Diagnostics.CodeAnalysis;
 
-if(sex == "women")
-    {
-    if (age < 30)
-    {
-        Console.WriteLine("Kobieta poniżej 30 lat");
-    }
-    else if (name == "Ewa" && age == 30)
-    {
-        Console.WriteLine("Ewa, lat 30");
-    }
+Console.Write("Wpisz liczbe w której chcesz policzyć cyfry    :  ");
 
-}
-else if (sex == "man" && age < 18)
+int number = int.Parse(Console.ReadLine());
+
+string nuberInString = number.ToString();
+
+
+char[] letters = nuberInString.ToCharArray();
+
+int[] repeat = new int[10];
+
+foreach (char digit in letters)
 {
-    Console.WriteLine("Niepełnoletni mężczyzna");
+    int indeks = int.Parse(digit.ToString());
+    repeat[indeks]++;
+}
+Console.WriteLine();
+Console.WriteLine("Rozwiązanie  :");
+Console.WriteLine();
+
+for (int i = 0; i < repeat.Length; i++)
+{
+    Console.WriteLine($"Cyfra{i} występuje {repeat[i]} razy.");
 }
 
 Console.ReadKey();
-
-
-
-
-
