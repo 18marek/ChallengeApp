@@ -1,28 +1,60 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-Console.Write("Wpisz liczbe w której chcesz policzyć cyfry    :  ");
-
-int number = int.Parse(Console.ReadLine());
-
-string nuberInString = number.ToString();
-
-
-char[] letters = nuberInString.ToCharArray();
-
-int[] repeat = new int[10];
-
-foreach (char digit in letters)
+﻿
+namespace ChallengeApp
 {
-    int indeks = int.Parse(digit.ToString());
-    repeat[indeks]++;
-}
-Console.WriteLine();
-Console.WriteLine("Rozwiązanie  :");
-Console.WriteLine();
+    class Program
+    {
+        public static void  Main(string[] args)
+        {
+            Employee employee1 = new Employee("Adam", "Kowalski", 40);
+            Employee employee2 = new Employee("Monika", "Potocka", 35);
+            Employee employee3 = new Employee("Marek", "Kozub", 50);
 
-for (int i = 0; i < repeat.Length; i++)
-{
-    Console.WriteLine($"Cyfra{i} występuje {repeat[i]} razy.");
-}
+            employee1.AddGrade(2);
+            employee1.AddGrade(3);
+            employee1.AddGrade(4);
+            employee1.AddGrade(5);
+            employee1.AddGrade(6);
 
-Console.ReadKey();
+            employee2.AddGrade(2);
+            employee2.AddGrade(2);
+            employee2.AddGrade(2);
+            employee2.AddGrade(2);
+            employee2.AddGrade(2);
+
+            employee3.AddGrade(2);
+            employee3.AddGrade(8);
+            employee3.AddGrade(2);
+            employee3.AddGrade(7);
+            employee3.AddGrade(9);
+
+            List<Employee> employees = new List<Employee>()
+            {
+                  employee1, employee2, employee3
+            };
+            int maxResult = 0;
+            Employee employeeInMaxResult = null;
+
+            foreach (Employee employee in employees)
+            {
+                if(employee.Result > maxResult)
+                {
+                    employeeInMaxResult=employee;
+                }
+            }
+            Console.WriteLine($"{employeeInMaxResult.Name}  {employeeInMaxResult.SecoundName} " +
+                $" zdobył {employeeInMaxResult.Result}  punktów plus premia");
+        }
+    }
+} 
+
+
+
+
+
+
+
+
+
+
+
+
